@@ -49,8 +49,9 @@ local tmux_sender = require('tmux-sender')
 vim.api.nvim_create_user_command('TmuxSendLine', tmux_sender.send_current_line_to_tmux,{} )
 vim.api.nvim_create_user_command('TmuxSendSelection', tmux_sender.send_visual_selection_to_tmux, {range=true})
 
-vim.keymap.set({'n'}, '<C-x><C-x>', ":TmuxSendLine<CR>", { desc = 'Execute current line in tmux pane' })
-vim.keymap.set({'v'}, '<C-x>', ":TmuxSendSelection<CR>", { desc = 'Execute current visual selection in tmux pane' })
+vim.keymap.set({'n'}, '<C-x><C-x>', ":TmuxSendLine<CR>j", { desc = 'Execute current line in tmux pane' })
+vim.keymap.set({'v'}, '<C-x>', ":TmuxSendSelection<CR>`>", { desc = 'Execute current visual selection in tmux pane' })
+vim.keymap.set({'i'}, '<C-x>', "<esc>:TmuxSendLine<CR>o", { desc = 'Execute current visual selection in tmux pane' })
 
 -- vim.keymap.set({'n'}, '<C-x><C-b>', '<Cmd>SlimuxREPLSendBuffer<cr>')
 
