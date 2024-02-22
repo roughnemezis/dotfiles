@@ -12,6 +12,17 @@ require('lazy').setup({
   'nvim-telescope/telescope-symbols.nvim',
   'alexghergh/nvim-tmux-navigation',
   {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("nvim-tree").setup {}
+    end,
+  },
+  {
     "epwalsh/obsidian.nvim",
     version = "*",  -- recommended, use latest release instead of latest commit
     lazy = false,
@@ -37,10 +48,6 @@ require('lazy').setup({
         },
       },
     },
-  },
-  {
-    "nvim-telescope/telescope-file-browser.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
   },
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   {
