@@ -17,10 +17,7 @@ require('lazy').setup({
     lazy = false,
     dependencies = {
       "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require("nvim-tree").setup {}
-    end,
+    }
   },
   {
     "epwalsh/obsidian.nvim",
