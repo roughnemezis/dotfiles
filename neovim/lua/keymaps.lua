@@ -55,3 +55,15 @@ vim.keymap.set({'i'}, '<C-x>', "<esc>:TmuxSendLine<CR>o", { desc = 'Execute curr
 
 -- vim.keymap.set({'n'}, '<C-x><C-b>', '<Cmd>SlimuxREPLSendBuffer<cr>')
 
+
+-- ################    OBSIDIAN        ##########################
+--
+--
+--
+--
+
+
+vim.keymap.set('n', '<leader>ol', ":ObsidianQuickSwitch<CR>", { desc = '[O]bsidian [L]ist files in vault' })
+vim.keymap.set('n', '<leader>ot', ":ObsidianToday<CR>", { desc = '[O]bsidian [T]oday' })
+vim.keymap.set('n', '<leader>oy', ":ObsidianYesterday<CR>", { desc = '[O]bsidian [Y]esterday' })
+vim.keymap.set('n', '<leader>oT', ":ObsidianTomorrow<CR>", { desc = '[O]bsidian [T]omorrow' })
