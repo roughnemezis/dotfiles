@@ -2,6 +2,11 @@
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
+  -- ceci doit être la méthode favorite pour ajouter des plugins
+  -- (le plugin a son repertoire particulier, et ça permet de 
+  -- définir les raccourcis, écouteurs que lorsque le plugin est 
+  -- chargé lorsque lazy=true)
+  require 'kickstart/plugins/conform',
   'esamattis/slimux',
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -185,7 +190,6 @@ require('lazy').setup({
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
-  -- require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
