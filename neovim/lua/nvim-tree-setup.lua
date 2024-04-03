@@ -37,18 +37,18 @@ local function my_on_attach(bufnr)
 
   -- vim.keymap.set('n', 'M',       api.tree.toggle_no_bookmark_filter,  opts('Toggle Filter: No Bookmark'))
   -- vim.keymap.set('n', 'm',       api.marks.toggle,                    opts('Toggle Bookmark'))
-  --
   vim.keymap.set('n', 'P',       api.node.navigate.parent,            opts('Parent Directory'))
   vim.keymap.set('n', 'q',       api.tree.close,                      opts('Close'))
-
-
   vim.keymap.set('n', 'R',       api.tree.reload,                     opts('Refresh'))
-
   vim.keymap.set('n', 's',       api.node.run.system,                 opts('Run System'))
 end
 
 -- pass to setup along with your other options
 require("nvim-tree").setup {
   on_attach = my_on_attach,
+  filters = {
+    dotfiles = true,
+    git_ignored = false
+  }
 }
 
