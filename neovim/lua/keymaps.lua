@@ -51,7 +51,8 @@ vim.api.nvim_create_user_command('TmuxSendSelection', tmux_sender.send_visual_se
 
 vim.keymap.set({'n'}, '<C-x><C-x>', ":TmuxSendLine<CR>j", { desc = 'Execute current line in tmux pane' })
 vim.keymap.set({'v'}, '<C-x>', ":TmuxSendSelection<CR>`>", { desc = 'Execute current visual selection in tmux pane' })
-vim.keymap.set({'i'}, '<C-x>', "<esc>:TmuxSendLine<CR>o", { desc = 'Execute current visual selection in tmux pane' })
+vim.keymap.set({'i'}, '<C-x>', "<esc>:TmuxSendLine<CR>o", { desc = 'Execute current line in insert mode and goto new line' })
+vim.keymap.set({'i'}, '<C-c>', "<esc>:TmuxSendLine<CR>a", { desc = 'Execute current line in insert mode' })
 
 -- vim.keymap.set({'n'}, '<C-x><C-b>', '<Cmd>SlimuxREPLSendBuffer<cr>')
 
@@ -61,8 +62,6 @@ vim.keymap.set({'i'}, '<C-x>', "<esc>:TmuxSendLine<CR>o", { desc = 'Execute curr
 --
 --
 --
-
-
 vim.keymap.set('n', '<leader>ol', ":ObsidianQuickSwitch<CR>", { desc = '[O]bsidian [L]ist files in vault' })
 vim.keymap.set('n', '<leader>ot', ":ObsidianToday<CR>", { desc = '[O]bsidian [T]oday' })
 vim.keymap.set('n', '<leader>oy', ":ObsidianYesterday<CR>", { desc = '[O]bsidian [Y]esterday' })

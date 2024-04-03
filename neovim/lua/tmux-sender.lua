@@ -10,6 +10,7 @@ local function format_for_send_keys(selected_string)
   local modified_string = vim.fn.substitute(selected_string, [["]], [[\\"]], "g")
   modified_string = vim.fn.substitute(modified_string, [[#]], [[\\#]], "g")
   modified_string = vim.fn.substitute(modified_string, [[!]], [[\\!]], "g")
+  modified_string = vim.fn.substitute(modified_string, [[%]], [[\\%]], "g")
   return modified_string
 end
 
@@ -37,7 +38,7 @@ local function send_visual_selection_to_tmux()
     -- en envoyant ligne à ligne ça semble bien fonctionner
     vim.cmd([[silent !tmux send-keys -t ]]..tmux_target..[[ "]]..format_for_send_keys(v)..[[" Enter]])
   end
-  -- vim.cmd([[silent !tmux send-keys -t ]]..tmux_target..[[ Enter]])
+  vim.cmd([[silent !tmux send-keys -t ]]..tmux_target..[[ Enter]])
   return start_line, end_line
 end
 
