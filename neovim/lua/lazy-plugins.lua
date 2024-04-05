@@ -3,10 +3,11 @@
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
   -- ceci doit être la méthode favorite pour ajouter des plugins
-  -- (le plugin a son repertoire particulier, et ça permet de 
-  -- définir les raccourcis, écouteurs que lorsque le plugin est 
+  -- (le plugin a son repertoire particulier, et ça permet de
+  -- définir les raccourcis, écouteurs que lorsque le plugin est
   -- chargé lorsque lazy=true)
   require 'kickstart/plugins/conform',
+  require 'kickstart/plugins/obsidian',
   'esamattis/slimux',
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -23,37 +24,6 @@ require('lazy').setup({
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     }
-  },
-  {
-    "epwalsh/obsidian.nvim",
-    version = "*",  -- recommended, use latest release instead of latest commit
-    lazy = false,
-    ft = "markdown",
-    -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-    -- event = {
-    --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-    --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
-    --   "BufReadPre path/to/my-vault/**.md",
-    --   "BufNewFile path/to/my-vault/**.md",
-    -- },
-    dependencies = {
-      -- Required.
-      "nvim-lua/plenary.nvim",
-
-      -- see below for full list of optional dependencies 👇
-    },
-    opts = {
-      workspaces = {
-        {
-          name = "clean",
-          path = "~/Documents/clean-vault-obsidian/clean",
-        },
-      },
-      follow_url_func = function(url)
-        -- Open the URL in the default web browser.
-        vim.fn.jobstart({"xdg-open", url})  -- linux
-      end,
-    },
   },
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   {
@@ -98,7 +68,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',                     opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -173,7 +143,7 @@ require('lazy').setup({
       -- Fuzzy Finder Algorithm which requires local dependencies to be built.
       -- Only load if `make` is available. Make sure you have the system
       -- requirements installed.
-      -- 
+      --
     }
   },
 

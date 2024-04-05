@@ -1,16 +1,16 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
--- 
+--
 --
 -- for obsidian markdown on the fly replacement
-vim.o.conceallevel = 2
+-- vim.o.conceallevel = 2
 
 --
 -- indentations
 vim.o.expandtab = true
-vim.o.shiftwidth=2
-vim.o.softtabstop=2
+vim.o.shiftwidth = 2
+vim.o.softtabstop = 2
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -48,10 +48,10 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
-vim.o.background= 'dark'
+vim.o.background = 'dark'
 
 require("tokyonight").setup({
-  style = "moon", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+  style = "moon",      -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
   light_style = "day", -- The theme is used when the background is set to light
   transparent = false, -- Enable this to disable setting the background color
   on_colors = function(colors) end,
@@ -62,5 +62,5 @@ require("tokyonight").setup({
   on_highlights = function(highlights, colors) end,
 })
 
-vim.cmd[[colorscheme  tokyonight-moon]]
+vim.cmd [[colorscheme  tokyonight-moon]]
 -- vim: ts=2 sts=2 sw=2 et
