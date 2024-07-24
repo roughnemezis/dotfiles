@@ -5,7 +5,12 @@
 --
 -- for obsidian markdown on the fly replacement
 -- vim.o.conceallevel = 2
-
+--
+--
+--
+--
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 --
 -- indentations
 vim.o.expandtab = true
@@ -50,6 +55,8 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 vim.o.background = 'dark'
 
+require('mini.align').setup()
+
 require("tokyonight").setup({
   style = "moon",      -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
   light_style = "day", -- The theme is used when the background is set to light
@@ -62,5 +69,5 @@ require("tokyonight").setup({
   on_highlights = function(highlights, colors) end,
 })
 
-vim.cmd [[colorscheme  tokyonight-moon]]
+vim.cmd [[colorscheme  tokyonight-night]]
 -- vim: ts=2 sts=2 sw=2 et

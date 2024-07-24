@@ -8,12 +8,17 @@ require('lazy').setup({
   -- chargé lorsque lazy=true)
   require 'kickstart/plugins/conform',
   require 'kickstart/plugins/obsidian',
+  require 'kickstart/plugins/quarto',
+  require 'kickstart/plugins/nvim-surround',
+  require 'kickstart/plugins/jupyter-kernel',
+  require 'kickstart/plugins/copilot',
+  require 'kickstart/plugins/copilot-chat',
+  'echasnovski/mini.align',
   'esamattis/slimux',
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-  -- 'Exafunction/codeium.vim',
   'nvim-tree/nvim-web-devicons',
   'nvim-telescope/telescope-symbols.nvim',
   'alexghergh/nvim-tmux-navigation',
@@ -55,15 +60,12 @@ require('lazy').setup({
     -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = {
-      -- Snippet Engine & its associated nvim-cmp source
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-path',
 
       -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
+      -- 'rafamadriz/friendly-snippets',
     },
   },
 

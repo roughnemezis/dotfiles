@@ -21,7 +21,7 @@ return {
       workspaces = {
         {
           name = "clean",
-          path = "~/Documents/clean-vault-obsidian/clean",
+          path = "~/Documents/obsidian-vaults/hugo-main-vault",
         },
       },
       daily_notes = {

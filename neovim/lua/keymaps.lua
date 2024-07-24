@@ -1,4 +1,8 @@
 -- [[ Basic Keymaps ]]
+--
+-- abbréviations utilities
+vim.cmd("abb PYMD ```python<CR>```")
+vim.cmd("abb TXMD ```<CR>```")
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -17,17 +21,17 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 
 -- navigation
-vim.keymap.set({'n', 'i','v'}, '<c-j>', '<c-w>j')
-vim.keymap.set({'n', 'i','v'}, '<c-k>', '<c-w>k')
-vim.keymap.set({'n', 'i','v'}, '<c-l>', '<c-w>l')
-vim.keymap.set({'n', 'i','v'}, '<c-h>', '<c-w>h')
+vim.keymap.set({ 'n', 'i', 'v' }, '<c-j>', '<c-w>j')
+vim.keymap.set({ 'n', 'i', 'v' }, '<c-k>', '<c-w>k')
+vim.keymap.set({ 'n', 'i', 'v' }, '<c-l>', '<c-w>l')
+vim.keymap.set({ 'n', 'i', 'v' }, '<c-h>', '<c-w>h')
 
 -- Sortir du mode insertion
-vim.keymap.set({'i'}, '<c-c>', '<nop>')
-vim.keymap.set({'i', 'v'}, 'jk', '<esc>')
-vim.keymap.set('t', '<ESC>'  ,  '<C-\\><C-n>'  ,  {noremap = true}  )
+vim.keymap.set({ 'i' }, '<c-c>', '<nop>')
+vim.keymap.set({ 'i', 'v' }, 'jk', '<esc>')
+vim.keymap.set('t', '<ESC>', '<C-\\><C-n>', { noremap = true })
 
-vim.keymap.set({'n'}, '<leader>ev', '<Cmd>split $MYVIMRC<CR>')
+vim.keymap.set({ 'n' }, '<leader>ev', '<Cmd>split $MYVIMRC<CR>')
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -41,21 +45,36 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 
-vim.keymap.set({'n'}, '<leader>f', ":NvimTreeToggle<CR>", { desc = 'Open NvimTree file explorer' })
+vim.keymap.set({ 'n' }, '<leader>f', ":NvimTreeToggle<CR>", { desc = 'Open NvimTree file explorer' })
 
 -- vim: ts=2 sts=2 sw=2 et
 
 local tmux_sender = require('tmux-sender')
-vim.api.nvim_create_user_command('TmuxSendLine', tmux_sender.send_current_line_to_tmux,{} )
-vim.api.nvim_create_user_command('TmuxSendSelection', tmux_sender.send_visual_selection_to_tmux, {range=true})
+vim.api.nvim_create_user_command('TmuxSendLine', tmux_sender.send_current_line_to_tmux, {})
+vim.api.nvim_create_user_command('TmuxSendSelection', tmux_sender.send_visual_selection_to_tmux, { range = true })
 
-vim.keymap.set({'n'}, '<C-x><C-x>', ":TmuxSendLine<CR>j", { desc = 'Execute current line in tmux pane' })
-vim.keymap.set({'v'}, '<C-x>', ":TmuxSendSelection<CR>`>", { desc = 'Execute current visual selection in tmux pane' })
-vim.keymap.set({'i'}, '<C-x>', "<esc>:TmuxSendLine<CR>o", { desc = 'Execute current line in insert mode and goto new line' })
-vim.keymap.set({'i'}, '<C-c>', "<esc>:TmuxSendLine<CR>a", { desc = 'Execute current line in insert mode' })
+vim.keymap.set({ 'n' }, '<C-x><C-x>', ":TmuxSendLine<CR>j",
+  { desc = 'Execute current line in tmux pane and move to next' })
+vim.keymap.set({ 'n' }, '<C-c><C-c>', ":TmuxSendLine<CR>", { desc = 'Execute current line in tmux pane' })
+vim.keymap.set({ 'v' }, '<C-x>', ":TmuxSendSelection<CR>`>", { desc = 'Execute current visual selection in tmux pane' })
+vim.keymap.set({ 'i' }, '<C-x>', "<esc>:TmuxSendLine<CR>o",
+  { desc = 'Execute current line in insert mode and goto new line' })
+vim.keymap.set({ 'i' }, '<C-c>', "<esc>:TmuxSendLine<CR>a", { desc = 'Execute current line in insert mode' })
 
--- vim.keymap.set({'n'}, '<C-x><C-b>', '<Cmd>SlimuxREPLSendBuffer<cr>')
+vim.keymap.set({ 'n' }, '<C-x><C-f>',
+  ":silent !tmux send-keys -t 1.2 'ipython %:p' Enter<CR>",
+  { desc = 'Execute current file in tmux pane and move to next' })
 
+-- ################    JUPYTER KERNEL  ##########################
+
+
+vim.keymap.set({ 'n' }, '<C-z><C-z>', ":JupyterExecute<CR>j",
+  { desc = 'Execute current line in jupyter kernel and move to next' })
+
+vim.keymap.set({ 'i' }, '<C-z>', "<esc>:JupyterExecute<CR>a",
+  { desc = 'Execute current line in insert mode in Jupyter Kernel and goto new line' })
+
+vim.keymap.set({ 'v' }, '<C-z>', ":JupyterExecute<CR>`>", { desc = 'Execute current visual selection in Jupyter Kernel' })
 
 -- ################    OBSIDIAN        ##########################
 --
