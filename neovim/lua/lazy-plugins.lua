@@ -13,23 +13,15 @@ require('lazy').setup({
   require 'kickstart/plugins/jupyter-kernel',
   require 'kickstart/plugins/copilot',
   require 'kickstart/plugins/copilot-chat',
+  require 'kickstart/plugins/oil',
   'echasnovski/mini.align',
   'esamattis/slimux',
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-  'nvim-tree/nvim-web-devicons',
   'nvim-telescope/telescope-symbols.nvim',
   'alexghergh/nvim-tmux-navigation',
-  {
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = false,
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    }
-  },
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   {
     "folke/tokyonight.nvim",

@@ -85,3 +85,7 @@ vim.keymap.set('n', '<leader>ol', ":ObsidianQuickSwitch<CR>", { desc = '[O]bsidi
 vim.keymap.set('n', '<leader>ot', ":ObsidianToday<CR>", { desc = '[O]bsidian [T]oday' })
 vim.keymap.set('n', '<leader>oy', ":ObsidianYesterday<CR>", { desc = '[O]bsidian [Y]esterday' })
 vim.keymap.set('n', '<leader>oT', ":ObsidianTomorrow<CR>", { desc = '[O]bsidian [T]omorrow' })
+
+
+-- ##############      OIL             ##########################
+vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
