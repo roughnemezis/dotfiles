@@ -6,6 +6,7 @@ require('lazy').setup({
   -- (le plugin a son repertoire particulier, et ça permet de
   -- définir les raccourcis, écouteurs que lorsque le plugin est
   -- chargé lorsque lazy=true)
+  require 'kickstart/plugins/telescope',
   require 'kickstart/plugins/conform',
   require 'kickstart/plugins/obsidian',
   require 'kickstart/plugins/quarto',
@@ -14,6 +15,7 @@ require('lazy').setup({
   require 'kickstart/plugins/copilot',
   require 'kickstart/plugins/copilot-chat',
   require 'kickstart/plugins/oil',
+  require 'kickstart/plugins/nvim-ufo',
   'echasnovski/mini.align',
   'esamattis/slimux',
   'tpope/vim-fugitive',
@@ -129,19 +131,6 @@ require('lazy').setup({
   { 'numToStr/Comment.nvim', opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
-  {
-    'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      -- Fuzzy Finder Algorithm which requires local dependencies to be built.
-      -- Only load if `make` is available. Make sure you have the system
-      -- requirements installed.
-      --
-    }
-  },
-
-
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
