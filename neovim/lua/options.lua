@@ -13,6 +13,10 @@
 -- vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 --
 --
+vim.api.nvim_set_hl(0, 'FloatBorder', { bg = '#3B4252', fg = '#5E81AC' })
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#3B4252' })
+vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = '#3B4252' })
+vim.api.nvim_set_hl(0, 'TelescopeBorder', { bg = '#3B4252' })
 
 vim.o.foldcolumn = '1' -- '0' is not bad
 vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
@@ -80,5 +84,5 @@ require("tokyonight").setup({
   on_highlights = function(highlights, colors) end,
 })
 
-vim.cmd [[colorscheme  tokyonight-night]]
+vim.cmd [[colorscheme  tokyonight-moon]]
 -- vim: ts=2 sts=2 sw=2 et

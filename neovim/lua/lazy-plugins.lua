@@ -6,6 +6,7 @@ require('lazy').setup({
   -- (le plugin a son repertoire particulier, et ça permet de
   -- définir les raccourcis, écouteurs que lorsque le plugin est
   -- chargé lorsque lazy=true)
+  require 'kickstart/plugins/iron',
   require 'kickstart/plugins/telescope',
   require 'kickstart/plugins/conform',
   require 'kickstart/plugins/obsidian',

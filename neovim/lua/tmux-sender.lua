@@ -31,12 +31,16 @@ end
 
 
 local function format_for_send_keys(selected_string)
-  local modified_string = vim.fn.substitute(selected_string, [["]], [[\\"]], "g")
+  -- c'est important de commencer par échapper le caractère d'échappement!
+  -- (sinon on va l'échapper par la suite c'est ballot)
+  local modified_string = vim.fn.substitute(selected_string, [[\]], [[\\\]], "g")
+  modified_string = vim.fn.substitute(modified_string, [["]], [[\\"]], "g")
   modified_string = vim.fn.substitute(modified_string, [[#]], [[\\#]], "g")
   modified_string = vim.fn.substitute(modified_string, [[!]], [[\\!]], "g")
   modified_string = vim.fn.substitute(modified_string, [[%]], [[\\%]], "g")
   return modified_string
 end
+
 
 local function exit_copy_mode_if_necessary()
   local cmd = [[tmux display-message -p -F '#{pane_in_mode}' -t ]] .. tmux_target

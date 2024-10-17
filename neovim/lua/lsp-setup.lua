@@ -8,18 +8,18 @@ local on_attach = function(_, bufnr)
     local supercharged_fonc = func
     if jump_type then
       function supercharged_fonc()
-        func({jump_type=jump_type})
+        func({ jump_type = jump_type })
       end
     end
     vim.keymap.set(
       'n',
       keys,
       supercharged_fonc,
-      {buffer = bufnr, desc = desc})
+      { buffer = bufnr, desc = desc })
   end
 
-  nmap( '<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-  nmap( '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+  nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+  nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
   nmap(
     'gdp',
     require('telescope.builtin').lsp_definitions,
@@ -49,6 +49,14 @@ local on_attach = function(_, bufnr)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
 end
+
+local _border = "single"
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+    border = _border
+  }
+)
 
 -- document existing key chains
 require('which-key').register {
